@@ -18,8 +18,8 @@ model User {
   firstName String
   lastName  String
   password  String
-  projects   Project[]
-  tasks      Task[]
+  projects  Project[]
+  tasks     Task[]
 }
 
 model Project {
@@ -28,17 +28,17 @@ model Project {
   updatedAt DateTime @updatedAt
 
   name        String
-  description String
+  description String?
   ownerId     String
   owner       User   @relation(fields: [ownerId], references: [id])
 
-  dueDate     DateTime?
-  tasks       Task[]
+  dueDate DateTime?
+  tasks   Task[]
 
-  deleted    Boolean @default(false)
+  deleted Boolean @default(false)
 
   @@unique([name, ownerId])
-  @@index([ownerId,id])
+  @@index([ownerId, id])
 }
 
 enum TASK_STATUS {
@@ -52,17 +52,16 @@ model Task {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  status     TASK_STATUS @default(NOT_STARTED)
-  name        String
-  projectId   String
-  project     Project @relation(fields: [projectId], references: [id])
+  status    TASK_STATUS @default(NOT_STARTED)
+  name      String
+  projectId String
+  project   Project     @relation(fields: [projectId], references: [id])
 
-  ownerId     String
-  owner       User   @relation(fields: [ownerId], references: [id])
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
 
-  dueDate     DateTime?
-  deleted     Boolean @default(false)
+  dueDate DateTime?
+  deleted Boolean   @default(false)
 
   @@index([ownerId])
 }
-

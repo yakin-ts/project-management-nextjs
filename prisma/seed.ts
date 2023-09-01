@@ -23,7 +23,8 @@ async function main() {
       projects: {
         create: new Array(5).fill(1).map((_, i) => ({
           name: `Project ${i}`,
-          due: new Date(2022, 11, 25),
+          dueDate: new Date(2022, 11, 25),
+          description: 'Everything that describes the project',
         })),
       },
     },
@@ -40,7 +41,7 @@ async function main() {
             name: `Task ${i}`,
             ownerId: user.id,
             projectId: project.id,
-            description: `Everything that describes Task ${i}`,
+            // description: `Everything that describes Task ${i}`,
             status: getRandomTaskStatus(),
           };
         }),
