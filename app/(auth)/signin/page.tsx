@@ -1,7 +1,9 @@
+import AuthForm from "@/components/AuthForm"
+
 const SingInPage: React.FC = () => {
     return (
-        <div className='bg-gray-300 '>
-            Signin page
+        <div >
+            <AuthForm mode='signin'/>
         </div>
     )
 }
