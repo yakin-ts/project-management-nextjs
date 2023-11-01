@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logo from '../logo.svg'
+import logo from "@/assets/images/logo.png";
 import Card from './Card'
 import SideBarLink from './SibeBarLink'
 const links = [
