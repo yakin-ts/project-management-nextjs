@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { Inter } from 'next/font/google'
 
 import GlassPane from "@/components/GlassPane"
+import SideBar from '@/components/SideBar'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,8 +17,9 @@ const AuthRootLayout: React.FC = ({ children }) => {
     return (
         <html lang="en">
            
-                <body className="h-screen w-screen rainbow-mesh p-6">
-                    <GlassPane className='w-full h-full items-center justify-center'>
+                <body className="h-screen w-screen candy-mesh p-6">
+                    <GlassPane className='w-full h-full items-center '>
+                        <SideBar />
                         {children}
                     </GlassPane>
                 </body>
